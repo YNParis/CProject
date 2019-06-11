@@ -13,7 +13,7 @@ float taxiCost(int time,int distance);
 
 //int main() int main(void)都是可以的 
 int main(){	
-printf("早上9点打车12公里花费%f元",taxiCost(9,12));
+printTower(); 
 	return 0;
 }
 
@@ -32,25 +32,25 @@ printTable();
     LOG:printf("结束for循环了....\n");  //打印完3之后，结束循环 
 	return 0;
 }
+
 int printTower(){
 	//打印*组成的金字塔 
-	int i=0,col=9,row=5;
-	for(;i<row;i++)
-	{
-		int j=0;
-	for(;j<col;j++)
-	{
-		if(j>=col/2-i&&j<=col/2+i)
-		{
-			printf("*");
-		}
-		else
-		{
-			printf(" ");
-		}
-	}
-	printf("\n");
-	}
+ 	int i, j, k;
+    for(i=1; i<5; i++)
+    {
+    	
+    	//4行 
+        for(j=i; j<4;j++)  
+        {
+            printf(" ");    //输出空格
+        }
+        /* 观察每行*号的数量 */
+        for( k=0;  k<i*2-1;k++ ) 
+        {
+            printf("*");   //每行输出的*号
+        }
+        printf("\n");     //每次循环换行
+    }
 	return 0;
 } 
 
@@ -94,29 +94,29 @@ int countToday(int year,int month,int day){
     {
     	case 11:
     		result+=30;
-			case 10:
+		case 10:
     		result+=31;
-    		case 9:
+    	case 9:
     		result+=30;
-    		case 8:
+    	case 8:
     		result+=31;
-    		case 7:
+    	case 7:
     		result+=31;
-    		case 6:
+    	case 6:
     		result+=30;
-    			case 5:
+    	case 5:
     		result+=31;
-    		case 4:
+    	case 4:
     		result+=30;
-    		case 3:
+    	case 3:
     		result+=31;
-    		case 2:
-				if(year%4==0&&year%100!=0||year%400==0){
-					result+=29;
-				}else{
-					result+=28;
-				}  
-    		case 1:
+    	case 2:
+			if(year%4==0&&year%100!=0||year%400==0){
+				result+=29;
+			}else{
+				result+=28;
+			}  
+    	case 1:
     		result+=31; 
     	case 0:
     		result+=day; 				
